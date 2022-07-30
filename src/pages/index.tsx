@@ -1,3 +1,5 @@
+import HomePage from '../Containers/HomePage';
+
 export default function Home() {
-  return <h1>Allow</h1>;
+  return <HomePage />;
 }

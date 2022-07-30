@@ -1,5 +1,9 @@
 import { AppProps } from 'next/app';
 import { ThemeProvider } from 'styled-components';
+import Footer from '../components/Footer';
+import Header from '../components/Header';
+import KnowBrazil from '../components/KnowBrazil';
+import { Packeges } from '../components/Packages';
 import { GlobalStyles } from '../styles/global';
 import { theme } from '../styles/theme';
 
@@ -8,7 +12,11 @@ function MyApp({ Component, pageProps }: AppProps) {
     <>
       <GlobalStyles />
       <ThemeProvider theme={theme}>
-        <Component {...pageProps} />;
+        <Header />
+        <Component {...pageProps} />
+        <Packeges />
+        <KnowBrazil />
+        <Footer />
       </ThemeProvider>
     </>
   );

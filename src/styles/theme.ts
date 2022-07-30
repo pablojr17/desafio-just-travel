@@ -1,12 +1,14 @@
 export const theme = {
   colors: {
-    AZUL: '#008FE5',
+    BLUE: '#4070F4',
+    WHITE: '#FFFFFF',
+    WHITE_ICE: '#e7e9ed',
+    GREEN: '#0bb07b',
+
     AZUL_20: '#ccebff',
     AZUL_50: '#0057ff',
     AZUL_60: '#33b1ff',
     AZUL_70: '#6398FF',
-    BRANCO: '#FFFFFF',
-    BRANCO_GELO: '#F6F8F7',
     CIANO_75: '#7efdfd',
     CINZA_10: '#e6e6e6',
     CINZA_20: '#ced4da',
@@ -23,7 +25,6 @@ export const theme = {
     PRETO_10: '#6E6E6E ',
     PRETO_40: '#999999',
     PRETO_60: '#666666',
-    VERDE: '#00C09E',
     VERDE_10: '#CCFFF2',
     VERDE_20: '#ccf2ec',
     VERDE_30: '#159700',
