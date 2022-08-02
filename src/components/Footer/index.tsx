@@ -12,7 +12,6 @@ import {
 } from './style';
 import Image from 'next/image';
 import Logo from '../../../public/images/white-logo.svg';
-import LogoBrasil from '../../../public/images/brasil.png';
 import { InstagramOutlined, LinkedinFilled } from '@ant-design/icons';
 
 export default function Footer() {
@@ -93,7 +92,6 @@ export default function Footer() {
             </span>
             <div>
               <span>Engineering made in BrazilBrazil</span>
-              <Image src={LogoBrasil} alt="Logo" width={30} height={21} />
             </div>
           </ContentInfoSecundary>
         </FooterSecundary>

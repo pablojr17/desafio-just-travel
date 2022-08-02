@@ -9,7 +9,6 @@ import {
 } from './style';
 import Image from 'next/image';
 import Logo from '../../../public/images/logo.png';
-import LogoBrasil from '../../../public/images/brasil.png';
 import Shape from '../../../public/images/shape.svg';
 import Path from '../../../public/images/path.svg';
 import { Typography } from 'antd';
@@ -22,8 +21,7 @@ export default function Header() {
         <ContentLogin>
           <ContentIcon>
             <Typography.Text>Cotação dólar hoje: R$5,53</Typography.Text>
-            <Image src={LogoBrasil} width={30} height={21} alt="image" />
-            <Image src={Path} alt="image" />
+            <Image src={Path} width={30} height={21} alt="image" />
           </ContentIcon>
           <ContentSignIn>
             <Image src={Shape} width={16} height={18} alt="image" />

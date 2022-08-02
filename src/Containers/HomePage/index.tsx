@@ -1,12 +1,47 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import InputSearch from '../../components/InputSearch';
-import { Container, ContentMenu, HeaderContentInput } from './styles';
+import {
+  Container,
+  Content,
+  ContentMenu,
+  HeaderContentInput,
+  SiderRight,
+  Sider,
+  Pagination,
+  SelectPage,
+} from './styles';
 import SelectOneMenu from '../../../public/images/select1.svg';
 import SelectTwoenu from '../../../public/images/select.svg';
 import Image from 'next/image';
-import { Col, Row } from 'antd';
+import { PriceCard } from '../../components/PriceCard';
+import { PropertyType } from '../../components/PropertyType';
+import { Amenities } from '../../components/Amenities';
+import { TypeHouse } from '../../components/TypeHouse';
+import { ReviewScore } from '../../components/ReviewScore';
+import { api } from '../../services/api';
+import { CardTicket } from '../../components/CardTicket';
+import { ITicketProps } from '../../interfaces';
+
 export default function HomePage() {
   const [search, setSearch] = useState();
+  const [dados, setDados] = useState<ITicketProps[]>();
+  const [listItems, setListItems] = useState(null);
+  const [itemsPerPage, setItemsPerPage] = useState(5);
+
+  const getTickets = async () => {
+    const { data } = await api.get<ITicketProps[]>('');
+    setDados(data);
+  };
+
+  useEffect(() => {
+    getTickets();
+  }, []);
+
+  useEffect(() => {
+    const endOffset = 0 + itemsPerPage;
+    setListItems(dados?.slice(0, endOffset));
+  }, [itemsPerPage, dados]);
+
   return (
     <Container>
       <HeaderContentInput>
@@ -19,12 +54,49 @@ export default function HomePage() {
         </div>
       </HeaderContentInput>
 
-      <Row gutter={{ md: 16 }}>
-        <Col style={{ backgroundColor: '#f59' }} span={8}>
-          col-8
-        </Col>
-        <Col span={8}>col-8</Col>
-      </Row>
+      <Content>
+        <section>
+          <Sider>
+            <div className="section-top">
+              <h4>Filter</h4>
+              <span>Limpar todos os filtros</span>
+            </div>
+
+            <PriceCard />
+            <PropertyType />
+            <Amenities />
+            <TypeHouse />
+            <ReviewScore />
+          </Sider>
+
+          <SiderRight>
+            {listItems &&
+              listItems.map((item: ITicketProps) => (
+                <CardTicket item={item} key={item.id} />
+              ))}
+
+            <Pagination>
+              <section className="info">
+                {dados && <span>{dados.length} Resultados</span>}
+
+                <SelectPage>
+                  <p>Página: </p>
+                  <select
+                    onChange={(e) => setItemsPerPage(Number(e.target.value))}
+                    value={itemsPerPage}
+                    id="item"
+                    name="item"
+                  >
+                    <option value="5">5</option>
+                    <option value="10">10</option>
+                    <option value="15">25</option>
+                  </select>
+                </SelectPage>
+              </section>
+            </Pagination>
+          </SiderRight>
+        </section>
+      </Content>
     </Container>
   );
 }

@@ -1,9 +1,10 @@
 import styled from 'styled-components';
+import { theme } from '../../styles/theme';
 
 export const Container = styled.div``;
 
 export const HeaderContentInput = styled.div`
-  background-color: #fff;
+  background-color: ${theme.colors.WHITE};
   height: 120px;
   .content {
     max-width: 1320px;
@@ -21,11 +22,12 @@ export const ContentMenu = styled.div`
   gap: 11px;
 `;
 
-export const ContentMain = styled.div`
+export const Content = styled.div`
   width: 100%;
   margin-top: 36px;
   margin-bottom: 86px;
-  .content {
+
+  section {
     max-width: 1320px;
     margin: 0 auto;
     display: flex;
@@ -35,20 +37,21 @@ export const ContentMain = styled.div`
 
 export const CardPrice = styled.div``;
 
-export const SidebarFilter = styled.div`
-  background-color: #fff;
+export const Sider = styled.div`
+  background-color: ${theme.colors.WHITE};
   width: 367px;
   padding: 24px;
-  height: fit-content;
-  .header {
+  max-height: 1100px;
+
+  .section-top {
     display: flex;
     align-items: center;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 1px solid #e7e9ed;
+    border-bottom: 1px solid ${theme.colors.WHITE_ICE};
     padding-bottom: 12px;
     h4 {
-      color: #0a2156;
+      color: ${theme.colors.DARK_BLUE};
       font-weight: 700;
       font-size: 24px;
       margin-bottom: 0;
@@ -61,73 +64,51 @@ export const SidebarFilter = styled.div`
   }
 `;
 
-export const Main = styled.div`
+export const SiderRight = styled.div`
   width: 929px;
   display: flex;
   flex-direction: column;
   gap: 14px;
-  .content_pagination {
-    width: 100%;
+`;
+
+export const Pagination = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 24px;
+
+  .info {
     display: flex;
-    justify-content: flex-end;
-    margin-top: 24px;
-    .page-info {
-      display: flex;
-      align-items: center;
-      .contentSelect {
-        display: flex;
-        align-items: center;
-        > p {
-          font-weight: 500;
-          font-size: 12px;
-          padding-right: 8px;
-          margin-bottom: 0px;
-        }
-        select {
-          width: 69px;
-          height: 28px;
-          border: 1px solid #8a90bd;
-          border-radius: 5px;
-        }
-      }
-      .result {
-        font-weight: 400;
-        font-size: 12px;
-        color: #828292;
-        padding-right: 24px;
-      }
+    align-items: center;
+
+    > span {
+      font-weight: 400;
+      font-size: 12px;
+      color: #828292;
     }
-    .pagination {
-      list-style: none;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 600;
-      font-size: 14px;
-      margin-bottom: 0px;
-      gap: 10px;
-      .page-num {
-        padding: 7px 14px;
-        font-size: 14px;
-        color: #455cc7;
-        border-radius: 4px;
-        &:hover {
-          background-color: #455cc7;
-          color: #fff;
-        }
-      }
-      .active {
-        a {
-          background-color: #455cc7;
-          color: #fff;
-        }
-      }
-    }
+  }
+`;
+
+export const SelectPage = styled.div`
+  display: flex;
+  align-items: center;
+
+  > p {
+    font-weight: 500;
+    font-size: 12px;
+    padding-right: 8px;
+    margin-bottom: 0px;
+  }
+  select {
+    width: 69px;
+    height: 28px;
+    border: 1px solid #8a90bd;
+    border-radius: 5px;
   }
 `;
 
 export const Title = styled.p`
   font-weight: 700;
   font-size: 16px;
-  color: #0a2156;
+  color: ${theme.colors.DARK_BLUE};
 `;

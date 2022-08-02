@@ -1,4 +1,4 @@
-import { CalendarTwoTone, SearchOutlined } from '@ant-design/icons';
+import { SearchOutlined } from '@ant-design/icons';
 import { DatePicker, Input } from 'antd';
 import React, { Dispatch } from 'react';
 import { theme } from '../../styles/theme';

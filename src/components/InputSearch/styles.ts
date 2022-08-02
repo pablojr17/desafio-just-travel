@@ -13,6 +13,7 @@ export const ContentInputSearch = styled.div`
     display: flex;
     align-items: center;
     height: 100%;
+    border: none;
   }
 
   input {
